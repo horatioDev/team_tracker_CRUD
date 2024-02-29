@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<title>Team Tracker</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/29cb2c9a11.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<h1>Team Tracker: Node.js CRUD API with Express and MongoDB</h1>
+
+        <!-- Team Members -->
+        <section id="addMemberForm">
+            <h1 id="header">Add New Member</h1>
+            <form id="addForm" action="/employees" method="POST">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+            
+                <label for="employeeId">Member ID:</label><br>
+                <input type="text" id="memberId" name="memberId" disabled required><br>
+            
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" required><br>
+            
+                <label for="phone">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone"><br>
+            
+                <label for="address">Address:</label><br>
+                <input type="text" id="address" name="address"><br>
+            
+                <label for="dob">Date of Birth:</label><br>
+                <input type="date" id="dob" name="dob"><br>
+            
+                <label for="gender">Gender:</label><br>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br>
+            
+                <label for="nationality">Nationality:</label><br>
+                <input type="text" id="nationality" name="nationality"><br>
+            
+                <label for="department">Department:</label><br>
+                <input type="text" id="department" name="department"><br>
+            
+                <label for="position">Position/Job Title:</label><br>
+                <input type="text" id="position" name="position"><br>
+            
+                <label for="manager">Manager/Supervisor:</label><br>
+                <input type="text" id="manager" name="manager"><br>
+            
+                <label for="joiningDate">Joining Date:</label><br>
+                <input type="date" id="joiningDate" name="joiningDate"><br>
+            
+                <label for="status">Status:</label><br>
+                <select id="status" name="status">
+                    <option value="pending">Pending</option>
+                    <option value="active">Active</option>
+                    <option value="onLeave">On Leave</option>
+                    <option value="resigned">Resigned</option>
+                    <option value="terminated">Terminated</option>
+                </select><br>
+            
+                <!-- Add more fields as needed -->
+            
+                <button class="btn btn-success" type="submit">Add Member</button>
+            </form>
+        </section>
+        
+        <!-- Template -->
+        <section id="employeesList">
+            <h3>Employees List</h3>
+            <ul class="employees">
+                <% if (employees && employees.length > 0) { %>
+                    <% employees.forEach(employee=> {%>
+                        <li class="employee">
+                            <section class="entry">
+                                <section class="info">
+                                    <small>Employee ID: <%=employee._id%></small><br>
+                                    <small>Name: <%=employee.name%></small><br>
+                                    <small>Gender: <%=employee.gender%></small><br>
+                                    <small>Age: <%=employee.dob%></small><br>
+                                    <small>Contact No.: <%=employee.phone%></small><br>
+                                    <small>Email: <%=employee.email%></small><br>
+                                    <small>Nationality: <%=employee.nationality%></small><br>
+                                    <small>Department: <%=employee.department%></small><br>
+                                    <small>Position/Job Title: <%=employee.position%></small><br>
+                                    <small>Join Date: <%=employee.joiningDate%></small><br>
+                                    <small>Status: <%=employee.status%></small> 
+                                </section>
+                                <div class="crud-buttons">
+                                    <button data-id="<%=  employee._id %>" class="btn btn-warning" id="update-btn">Update</button>
+                                    <button data-id="<%=  employee._id %>"  class="btn btn-danger" id="delete-btn">Delete</button>
+                                </div>
+                            </section>
+                        </li>
+                    <%})%>
+                <% } else {%>
+                    <p>No employees available.</p>
+                <%}%>
+            </ul>
+        </section>
+
+        <!-- Links to Other API's -->
+		<ul>
+            <!-- <li class="api-icon"><a href="/employees"><i class="fas fa-users"></i> Team Tracker API</a></li> -->
+			<li class="api-icon"><a href="/quotes"><i class="fas fa-quote-left"></i> Quotes API</a></li>
+			<li class="api-icon"><a href="/contacts"><i class="fas fa-address-book"></i> Address Book API</a></li>
+			<li class="api-icon"><a href="/posts"><i class="fas fa-pencil-alt"></i> Posts/Blog API</a></li>
+			<li class="api-icon"><a href="/tasks"><i class="fas fa-tasks"></i> Tasks Manager API</a></li>
+		</ul>
+        <!-- <%= employees %> -->
+
+		<script src="/main.js"></script>
+	</body>
+</html>

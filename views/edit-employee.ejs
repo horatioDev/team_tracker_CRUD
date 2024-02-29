@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is where your description goes">
+    <meta name="keywords" content="one, two, three">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Tracker | Edit Employee</title>
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Team Tracker: Node.js CRUD API with Express and MongoDB</h1>
+
+<!-- Update Section -->
+<section id="updateMemberForm">
+    <h2 id="header">Update a Team Member's Information</h2>
+    <form id="editEmployeeForm" action="/employees/<%= employee._id %>" method="PUT">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="<%= employee.name %>" required><br>
+
+        <label for="memberId">Member ID:</label><br>
+        <input type="text" id="memberId" name="memberId" value="<%= employee._id %>" disabled required><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" value="<%= employee.email %>" required><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone" value="<%= employee.phone %>"><br>
+
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" value="<%= employee.address %>"><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" value="<%= employee.dob %>"><br>
+
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender">
+            <option value="male" <%= employee.gender === 'male' ? 'selected' : '' %>>Male</option>
+            <option value="female" <%= employee.gender === 'female' ? 'selected' : '' %>>Female</option>
+            <option value="other" <%= employee.gender === 'other' ? 'selected' : '' %>>Other</option>
+        </select><br>
+
+        <label for="nationality">Nationality:</label><br>
+        <input type="text" id="nationality" name="nationality" value="<%= employee.nationality %>"><br>
+
+        <label for="department">Department:</label><br>
+        <input type="text" id="department" name="department" value="<%= employee.department %>"><br>
+
+        <label for="position">Position/Job Title:</label><br>
+        <input type="text" id="position" name="position" value="<%= employee.position %>"><br>
+
+        <label for="manager">Manager/Supervisor:</label><br>
+        <input type="text" id="manager" name="manager" value="<%= employee.manager %>"><br>
+
+        <label for="joiningDate">Joining Date:</label><br>
+        <input type="date" id="joiningDate" name="joiningDate" value="<%= employee.joiningDate %>"><br>
+
+        <label for="status">Status:</label><br>
+        <select id="status" name="status">
+            <option value="pending" <%= employee.status === 'pending' ? 'selected' : '' %>>Pending</option>
+            <option value="active" <%= employee.status === 'active' ? 'selected' : '' %>>Active</option>
+            <option value="onLeave" <%= employee.status === 'onLeave' ? 'selected' : '' %>>On Leave</option>
+            <option value="resigned" <%= employee.status === 'resigned' ? 'selected' : '' %>>Resigned</option>
+            <option value="terminated" <%= employee.status === 'terminated' ? 'selected' : '' %>>Terminated</option>
+        </select><br>
+
+        <!-- Add more fields as needed -->
+
+        <button data-id="<%= employee._id %>" id="save-btn" class="btn btn-succes" type="submit">Save Changes</button>
+		<button data-id="<%= employee._id %>" id="cancel-btn" class="btn btn-succes" type="submit">Cancel</button>
+    </form>
+</section>
+
+<script src="/main.js"></script>
+</body>
+</html>

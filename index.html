@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<title>Team Tracker</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<h1>Team Tracker: Node.js CRUD API with Express and MongoDB</h1>
+
+        <!-- Team Members -->
+        <h1>Add New Member</h1>
+        <form action="/employees" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+        
+            <label for="employeeId">Member ID:</label><br>
+            <input type="text" id="memberId" name="memberId" required><br>
+        
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" required><br>
+        
+            <label for="phone">Phone Number:</label><br>
+            <input type="text" id="phone" name="phone"><br>
+        
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address"><br>
+        
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br>
+        
+            <label for="gender">Gender:</label><br>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br>
+        
+            <label for="nationality">Nationality:</label><br>
+            <input type="text" id="nationality" name="nationality"><br>
+        
+            <label for="department">Department:</label><br>
+            <input type="text" id="department" name="department"><br>
+        
+            <label for="position">Position/Job Title:</label><br>
+            <input type="text" id="position" name="position"><br>
+        
+            <label for="manager">Manager/Supervisor:</label><br>
+            <input type="text" id="manager" name="manager"><br>
+        
+            <label for="joiningDate">Joining Date:</label><br>
+            <input type="date" id="joiningDate" name="joiningDate"><br>
+        
+            <label for="status">Status:</label><br>
+            <select id="status" name="status">
+                <option value="pending">Pending</option>
+                <option value="active">Active</option>
+                <option value="onLeave">On Leave</option>
+                <option value="resigned">Resigned</option>
+                <option value="terminated">Terminated</option>
+            </select><br>
+        
+            <!-- Add more fields as needed -->
+        
+            <button class="btn btn-success" type="submit">Add Team Member</button>
+        </form>
+
+		<script type="text/javascript" src="/main.js"></script>
+	</body>
+</html>
